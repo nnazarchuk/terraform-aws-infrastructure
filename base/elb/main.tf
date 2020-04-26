@@ -26,6 +26,8 @@ resource "aws_security_group" "elb" {
 resource "aws_elb" "main" {
   subnets         = var.subnet_ids
   security_groups = [aws_security_group.elb.id]
+  instances                   = var.instance_ids
+  cross_zone_load_balancing   = true
 
   listener {
     instance_port     = var.instance_port
@@ -41,12 +43,6 @@ resource "aws_elb" "main" {
     target              = "HTTP:${var.instance_port}/"
     interval            = 30
   }
-
-  instances                   = var.instance_ids
-  cross_zone_load_balancing   = true
-  idle_timeout                = 400
-  connection_draining         = true
-  connection_draining_timeout = 400
 
   tags = var.common_tags
 }

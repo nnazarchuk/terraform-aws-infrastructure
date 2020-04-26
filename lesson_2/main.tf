@@ -7,7 +7,7 @@ locals {
 }
 
 module "base" {
-  source = "../base"
+  source             = "../base"
   instance_user_data = local.user_data
 }
 

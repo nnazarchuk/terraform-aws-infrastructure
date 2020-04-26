@@ -8,8 +8,8 @@ resource "aws_default_security_group" "default_security_group" {
   vpc_id = aws_vpc.main.id
 
   ingress {
-    from_port   = var.open_port
-    to_port     = var.open_port
+    from_port   = var.instance_port
+    to_port     = var.instance_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

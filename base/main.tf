@@ -2,7 +2,7 @@ module "network" {
   source             = "./network"
   base_cidr_block    = var.base_cidr_block
   subnet_cidr_blocks = var.instances.*.subnet_cidr_block
-  open_port          = var.instance_port
+  instance_port     = var.instance_port
   common_tags        = var.common_tags
 }
 
