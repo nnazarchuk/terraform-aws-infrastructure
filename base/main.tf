@@ -44,6 +44,7 @@ resource "aws_instance" "node" {
   instance_type = "t2.micro"
   subnet_id     = tolist(module.network.subnet_ids)[count.index]
   user_data     = var.instance_user_data
+  associate_public_ip_address = true
 
   tags = var.common_tags
 }
