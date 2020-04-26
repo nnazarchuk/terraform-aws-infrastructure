@@ -1,3 +1,7 @@
+variable "region" {
+  default = "us-east-1"
+}
+
 variable "common_tags" {
   type = map
 
@@ -7,33 +11,6 @@ variable "common_tags" {
   }
 }
 
-variable "base_cidr_block" {
-  default = "192.168.123.0/24"
-}
-
-variable "instance_port" {
-  default = 9000
-}
-
-variable "instance_user_data" {
-  default = ""
-}
-
-variable "instances" {
-  type = list(object({ subnet_cidr_block = string }))
-
-  default = [
-    {
-      instance_type     = "t2.micro",
-      subnet_cidr_block = "192.168.123.0/28"
-    },
-    {
-      instance_type     = "t2.micro",
-      subnet_cidr_block = "192.168.123.16/28"
-    }
-  ]
-}
-
 variable "ssh_key" {
   type = object({ private = string, public = string })
 
@@ -41,4 +18,24 @@ variable "ssh_key" {
     private = "~/.ssh/terraform"
     public  = "~/.ssh/terraform.pub"
   }
+}
+
+variable "base_cidr_block" {
+  default = "192.168.123.0/24"
+}
+
+variable "instance_count" {
+  type = number
+
+  default = 1
+}
+
+variable "instance_port" {
+  type = number
+
+  default = 9000
+}
+
+variable "user_data" {
+  default = ""
 }

@@ -4,11 +4,10 @@ sudo mkdir -p /var/www/app
 sudo bash -c 'cat <<EOF > /var/www/app/index.html
 <html>
     <head>
-        <title>DevOps School</title>
+        <title>Hello World!</title>
     </head>
     <body>
-        <h1>Hello from $(hostname -I)</h1>
-        <img src="https://devops-school.s3.amazonaws.com/devops-school-image.png"/>
+        <h1>Hello from $(hostname -I)!</h1>
     </body>
 </html>
 EOF'
