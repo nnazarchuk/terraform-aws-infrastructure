@@ -5,5 +5,5 @@ locals {
 module "base" {
   source         = "./base"
   user_data      = local.user_data
-  instance_count = 3
+  instance_count = 2
 }
