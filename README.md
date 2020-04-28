@@ -13,6 +13,6 @@ https://www.terraform.io/docs/providers/aws/index.html#environment-variables
 Install terraform on your local machine and run the next commands to create the infrastructure:
 ```
 $ terraform init
-$ terraform plan
-$ terraform apply
+$ terraform plan [-var="instance_count=<number>]
+$ terraform apply [-var="instance_count=<number>]
 ```
