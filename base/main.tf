@@ -48,7 +48,10 @@ resource "aws_instance" "node" {
   user_data                   = var.user_data
   associate_public_ip_address = true
 
-  tags = var.common_tags
+  tags = merge(
+    var.common_tags,
+    map("OS", "CentOS")
+  )
 }
 
 module "elb" {
