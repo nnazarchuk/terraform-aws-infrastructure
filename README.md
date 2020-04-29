@@ -10,9 +10,9 @@ Also you need to export AWS environment variables to terraform would have access
 https://www.terraform.io/docs/providers/aws/index.html#environment-variables
 
 ## Launching
-Install terraform on your local machine and run the next commands to create the infrastructure:
+Install terraform on your local machine and run the next commands to create an infrastructure:
 ```
 $ terraform init
-$ terraform plan [-var="instance_count=<number>]
-$ terraform apply [-var="instance_count=<number>]
+$ terraform plan -var instance_count=1 -var common_tags='{"Owner":"Your Name","Service":"Service Name"}'
+$ terraform apply -var instance_count=1 -var common_tags='{"Owner":"Your Name","Service":"Service Name"}'
 ```

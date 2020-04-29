@@ -1,5 +1,7 @@
 variable "instance_count" {
-  default = 2
+  type = number
+
+  default = 1
 }
 
 variable "user_data" {
@@ -39,4 +41,12 @@ sudo systemctl enable nginx
 sudo systemctl start nginx
 
 EOF
+}
+
+variable "common_tags" {
+  type = map
+
+  default = {
+    Service = "Terraform"
+  }
 }

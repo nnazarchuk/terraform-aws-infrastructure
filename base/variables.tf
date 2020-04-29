@@ -2,14 +2,7 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "common_tags" {
-  type = map
-
-  default = {
-    Service = "Terraform"
-    Owner   = "Nikita Nazarchuk"
-  }
-}
+variable "common_tags" {}
 
 variable "ssh_key" {
   type = object({ private = string, public = string })
