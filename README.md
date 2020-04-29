@@ -1,4 +1,4 @@
-# DevOps School Infrastructure
+# Terraform AWS Infrastructure
 
 It contains simple IaC configuration based on Terraform that can create AWS EC2 instances with and Elastic Load Balancer that balances traffic between this instances.
 
