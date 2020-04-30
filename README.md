@@ -13,6 +13,8 @@ https://www.terraform.io/docs/providers/aws/index.html#environment-variables
 Install terraform on your local machine and run the next commands to create an infrastructure:
 ```
 $ terraform init
-$ terraform plan -var instance_count=1 -var common_tags='{"Owner":"Your Name","Service":"Service Name"}'
-$ terraform apply -var instance_count=1 -var common_tags='{"Owner":"Your Name","Service":"Service Name"}'
+$ terraform apply \
+    -var instance_count=1 \
+    -var instance_port=3000 \
+    -var common_tags='{"Owner":"Your Name","Service":"Service Name"}'
 ```

@@ -2,7 +2,11 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "common_tags" {}
+variable "common_tags" {
+  type = map
+
+  default = {}
+}
 
 variable "ssh_key" {
   type = object({ private = string, public = string })
@@ -19,14 +23,10 @@ variable "base_cidr_block" {
 
 variable "instance_count" {
   type = number
-
-  default = 1
 }
 
 variable "instance_port" {
   type = number
-
-  default = 9000
 }
 
 variable "user_data" {
