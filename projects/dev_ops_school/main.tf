@@ -107,10 +107,10 @@ resource "aws_instance" "node" {
 # ELB
 
 module "elb" {
-  source            = "../../elb"
-  security_groups   = [module.elb_security_group.id]
-  subnets           = module.vpc.subnet_ids
-  instances         = aws_instance.node.*.id
-  instance_port     = 3000
-  tags              = var.common_tags
+  source          = "../../elb"
+  security_groups = [module.elb_security_group.id]
+  subnets         = module.vpc.subnet_ids
+  instances       = aws_instance.node.*.id
+  instance_port   = 3000
+  tags            = var.common_tags
 }
