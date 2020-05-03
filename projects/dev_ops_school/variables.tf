@@ -2,10 +2,19 @@ variable "region" {
   default = "us-east-1"
 }
 
+variable "instance_count" {
+  type = number
+
+  default = 1
+}
+
 variable "common_tags" {
   type = map
 
-  default = {}
+  default = {
+    Project = "devOpsSchool"
+    Owner   = "Nikita Nazarchuk"
+  }
 }
 
 variable "ssh_key" {
@@ -15,20 +24,4 @@ variable "ssh_key" {
     private = "~/.ssh/terraform"
     public  = "~/.ssh/terraform.pub"
   }
-}
-
-variable "base_cidr_block" {
-  default = "192.168.123.0/24"
-}
-
-variable "instance_count" {
-  type = number
-}
-
-variable "instance_port" {
-  type = number
-}
-
-variable "user_data" {
-  default = ""
 }

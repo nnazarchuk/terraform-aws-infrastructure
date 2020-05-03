@@ -1,7 +1,7 @@
 resource "aws_elb" "main" {
-  subnets                   = var.subnet_ids
-  security_groups           = [var.security_group_id]
-  instances                 = var.instance_ids
+  subnets                   = var.subnets
+  security_groups           = var.security_groups
+  instances                 = var.instances
   cross_zone_load_balancing = true
 
   listener {
@@ -19,5 +19,5 @@ resource "aws_elb" "main" {
     interval            = 30
   }
 
-  tags = var.common_tags
+  tags = var.tags
 }

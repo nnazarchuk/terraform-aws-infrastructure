@@ -1,13 +1,13 @@
 resource "aws_vpc" "common" {
   cidr_block = var.base_cidr_block
 
-  tags = var.common_tags
+  tags = var.tags
 }
 
 resource "aws_internet_gateway" "default" {
   vpc_id = aws_vpc.common.id
 
-  tags = var.common_tags
+  tags = var.tags
 }
 
 resource "aws_route" "internet_access" {
@@ -20,11 +20,11 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-resource "aws_subnet" "instance_subnet" {
-  count             = var.instance_count
+resource "aws_subnet" "subnet" {
+  count             = var.subnet_count
   vpc_id            = aws_vpc.common.id
   cidr_block        = cidrsubnet(var.base_cidr_block, 4, count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
-  tags = var.common_tags
+  tags = var.tags
 }
