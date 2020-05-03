@@ -5,4 +5,3 @@ It contains base Terraform modules that can be used for building AWS infrastruct
 ## Development
 
 Place common Terraform modules in the root repository directory. Use `<root>/projects` directory  for specific projects.
-
