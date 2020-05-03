@@ -32,8 +32,8 @@ module "instance_security_group" {
   source = "../../security_group"
   vpc_id = module.vpc.id
   ingress_rules = [{
-    from_port       = 3000
-    to_port         = 3000
+    from_port       = 8000
+    to_port         = 8000
     protocol        = "tcp"
     security_groups = [module.elb_security_group.id]
   }]
@@ -111,6 +111,6 @@ module "elb" {
   security_groups = [module.elb_security_group.id]
   subnets         = module.vpc.subnet_ids
   instances       = aws_instance.node.*.id
-  instance_port   = 3000
+  instance_port   = 8000
   tags            = var.common_tags
 }
