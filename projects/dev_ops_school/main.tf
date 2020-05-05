@@ -36,6 +36,11 @@ module "instance_security_group" {
     to_port         = 8000
     protocol        = "tcp"
     security_groups = [module.elb_security_group.id]
+  }, {
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
+    security_groups = [module.jenkins_security_group.id]
   }]
   tags = var.common_tags
 }
@@ -99,6 +104,7 @@ resource "aws_instance" "node" {
   instance_type          = "t2.micro"
   subnet_id              = tolist(module.vpc.subnet_ids)[count.index]
   vpc_security_group_ids = [module.instance_security_group.id]
+  associate_public_ip_address = true
 
   tags = merge(
     var.common_tags,
